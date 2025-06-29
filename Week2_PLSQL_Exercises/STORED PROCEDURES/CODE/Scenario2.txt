@@ -1,0 +1,30 @@
+Scenario 2: The bank wants to implement a bonus scheme for employees based on their performance.
+o	Question: Write a stored procedure UpdateEmployeeBonus that updates the salary of employees in a given department by adding a bonus percentage passed as a parameter.
+
+CREATE TABLE employees (
+    emp_id         NUMBER PRIMARY KEY,
+    name           VARCHAR2(100),
+    department     VARCHAR2(50),
+    salary         NUMBER(10,2)
+);
+INSERT INTO employees VALUES (1, 'Ravi', 'Sales', 30000);
+INSERT INTO employees VALUES (2, 'Meena', 'HR', 28000);
+INSERT INTO employees VALUES (3, 'Anil', 'Sales', 32000);
+
+COMMIT;
+CREATE OR REPLACE PROCEDURE UpdateEmployeeBonus (
+    p_department      IN VARCHAR2,
+    p_bonus_percent   IN NUMBER
+) IS
+BEGIN
+   UPDATE employees
+   SET salary = salary + (salary * p_bonus_percent / 100)
+   WHERE department = p_department;
+
+   COMMIT;
+
+   DBMS_OUTPUT.PUT_LINE('Bonus applied to department: ' || p_department);
+END;
+/
+SET SERVEROUTPUT ON;
+EXEC UpdateEmployeeBonus('Sales', 10);
