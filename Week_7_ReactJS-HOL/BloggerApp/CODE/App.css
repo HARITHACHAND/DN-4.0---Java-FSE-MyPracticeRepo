@@ -1,0 +1,45 @@
+/* App.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.column {
+  border-left: 4px solid green;
+  padding-left: 30px;
+  max-width: 300px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.column p {
+  font-size: 16px;
+  margin: 5px 0 15px;
+}
+
+.column strong {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.column em {
+  font-style: italic;
+  font-size: 15px;
+  color: #333;
+}
